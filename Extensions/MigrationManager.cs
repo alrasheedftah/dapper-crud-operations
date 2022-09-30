@@ -15,11 +15,11 @@ public static class MigrationManager
 
             try
             {
-                databaseService.CreateDatabase("dappermigration");
+                databaseService.CreateDatabase("employeesdb");
 
                 migrationService.ListMigrations();
                 migrationService.MigrateUp();     
-                           
+
             }
             catch
             {

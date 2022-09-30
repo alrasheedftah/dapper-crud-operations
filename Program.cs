@@ -17,8 +17,8 @@ builder.Services.AddSwaggerGen();
   
 // inject
 
-// builder.Services.AddDbContext<TasksContext>(options =>
-//         options.UseNpgsql(builder.Configuration.GetConnectionString("TasksContextConnection")));
+builder.Services.AddDbContext<UserTasksContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddSingleton<DapperDBContext>();
 builder.Services.AddSingleton<Database>();
@@ -26,6 +26,7 @@ builder.Services.AddSingleton<Database>();
 builder.Services.AddLogging(c => c.AddFluentMigratorConsole())
         .AddFluentMigratorCore()
         .ConfigureRunner(c => c.AddPostgres()
+            
             .WithGlobalConnectionString(builder.Configuration.GetConnectionString("SqlConnection"))
             .ScanIn(Assembly.GetExecutingAssembly()).For.Migrations());
 
