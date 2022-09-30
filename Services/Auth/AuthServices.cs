@@ -115,7 +115,7 @@ public class AuthServices : IAuthServices
 
             return new SuccessResponse
             {
-                Result = NewUser.Id,
+                Result = Tokenusr,
                 Success = true,
             };
 
