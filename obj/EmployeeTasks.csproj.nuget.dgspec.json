@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/alrasheed/Desktop/MyPro/TaskAndTests/EmployeeTasks/EmployeeTasks.csproj": {}
+  },
+  "projects": {
+    "/home/alrasheed/Desktop/MyPro/TaskAndTests/EmployeeTasks/EmployeeTasks.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alrasheed/Desktop/MyPro/TaskAndTests/EmployeeTasks/EmployeeTasks.csproj",
+        "projectName": "EmployeeTasks",
+        "projectPath": "/home/alrasheed/Desktop/MyPro/TaskAndTests/EmployeeTasks/EmployeeTasks.csproj",
+        "packagesPath": "/home/alrasheed/.nuget/packages/",
+        "outputPath": "/home/alrasheed/Desktop/MyPro/TaskAndTests/EmployeeTasks/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alrasheed/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "FluentMigrator": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            },
+            "FluentMigrator.Runner": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.109/sdk/6.0.109/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
