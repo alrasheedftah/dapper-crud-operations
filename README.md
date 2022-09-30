@@ -1,6 +1,6 @@
 
 
-configration DataBase with Migration And Seeder When Run The Server
+
 
 
 to Run The Api 
