@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using EmployeeTasks.ApiResource.Responses;
 
 namespace EmployeeTasks.Services.Auth;
 public class AuthServices : IAuthServices

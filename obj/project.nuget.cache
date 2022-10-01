@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hheBT8uDJ2day/WpbTtyYnKAKNmx//ab1lJGgjKQwSARIWfSjzX4/HMx4zkEHY/50UspUwx168wEBl2teOOdBQ==",
+  "dgSpecHash": "E2Msr4KMzYIt89HSbUK3Jsy9bY+ekcuvZ6UTMYZP6upFqAvDp/H2ey0Jys1+FgjYzk28ODQmnNSZEisSe2tJyA==",
   "success": true,
   "projectFilePath": "/home/alrasheed/Desktop/MyPro/TaskAndTests/EmployeeTasks/EmployeeTasks.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,7 @@
     "/home/alrasheed/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.9/microsoft.entityframeworkcore.analyzers.6.0.9.nupkg.sha512",
     "/home/alrasheed/.nuget/packages/microsoft.entityframeworkcore.design/6.0.9/microsoft.entityframeworkcore.design.6.0.9.nupkg.sha512",
     "/home/alrasheed/.nuget/packages/microsoft.entityframeworkcore.relational/6.0.9/microsoft.entityframeworkcore.relational.6.0.9.nupkg.sha512",
+    "/home/alrasheed/.nuget/packages/microsoft.entityframeworkcore.sqlserver/6.0.9/microsoft.entityframeworkcore.sqlserver.6.0.9.nupkg.sha512",
     "/home/alrasheed/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/home/alrasheed/.nuget/packages/microsoft.extensions.caching.abstractions/6.0.0/microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "/home/alrasheed/.nuget/packages/microsoft.extensions.caching.memory/6.0.1/microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",

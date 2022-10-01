@@ -2,6 +2,7 @@
 
 using EmployeeTasks.Models;
 using FluentMigrator;
+using FluentMigrator.SqlServer;
 
 namespace EmployeeTasks.Migrations;
 [Migration(20220930002)]
@@ -14,20 +15,30 @@ public class InitialSeeder : Migration
 
     public override void Up()
     {
-        Insert.IntoTable("Employees")
+        Insert.IntoTable("employees")
+            .WithIdentityInsert()
             .Row(new Employees
             {
-                Id = new Guid("67fbac34-1ee1-4697-b916-1748861dd275"),
+                Id = 11,
                 Name = "EMployee 1",
                 DateAdded = DateTime.Now
             });
-        Insert.IntoTable("Tasks")
-            .Row(new Tasks
+        Insert.IntoTable("tasks")
+            .WithIdentityInsert()
+            .Row(new TasksModel
             {
-                Id = new Guid("59c0d403-71ce-4ac8-9c2c-b0e54e7c043b"),
+                Id = 11,
                 Name = "Task Name",
-                EmployeeId = new Guid("67fbac34-1ee1-4697-b916-1748861dd275"),
+                EmployeeId = 11,
                 DateAdded = DateTime.Now
             });
+
+        Insert.IntoTable("employees_tasks")
+            .WithIdentityInsert()
+            .Row(new EmployeeOwnedTasks
+            {
+                TaskId = 11,
+                EmployeeId = 11
+            });            
     }
 }

@@ -14,7 +14,14 @@
 
         public static class EmployRoute
         {
-            public const string Employees = BaseApiUrl + "/employees";
+            public const string EmployeesRouterName = BaseApiUrl + "/employees";
+
+        }
+
+
+        public static class TasksRouteName
+        {
+            public const string TasksRouterName = BaseApiUrl + "/tasks";
 
         }
 

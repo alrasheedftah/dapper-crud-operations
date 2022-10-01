@@ -12,8 +12,8 @@ public class DapperDBContext
         _configuration = configuration;
     }
     public IDbConnection CreateConnection()
-        => new NpgsqlConnection(_configuration.GetConnectionString("SqlConnection"));
+        => new SqlConnection(_configuration.GetConnectionString("SqlConnection"));
     public IDbConnection CreateMasterConnection()
-        => new NpgsqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+        => new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
 }

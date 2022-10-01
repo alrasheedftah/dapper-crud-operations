@@ -11,9 +11,9 @@ public class Database
     }
     public void CreateDatabase(string dbName)
     {
-        var query = "SELECT * FROM pg_database WHERE datname = @datname"; //sys.databases in MSSQL
+        var query = "SELECT * FROM sys.databases WHERE name = @name"; //sys.databases in MSSQL
         var parameters = new DynamicParameters();
-        parameters.Add("datname", dbName); // name in MSSQL
+        parameters.Add("name", dbName); // name in MSSQL
         using (var connection = _context.CreateMasterConnection())
         {
             var records = connection.Query(query, parameters);

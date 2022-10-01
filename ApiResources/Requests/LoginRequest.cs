@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EmployeeCrudTaskAPi.ApiResource.Requests;
+namespace EmployeeTasks.ApiResource.Requests;
     public class LoginRequest
     {
         [Required]

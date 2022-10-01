@@ -6,17 +6,35 @@ using EmployeeTasks.Helpers;
 using EmployeeTasks.Migrations;
 using EmployeeTasks.Models;
 using EmployeeTasks.Services.Auth;
+using EmployeeTasks.Services.Employee;
+using EmployeeTasks.Services.Tasks;
 using FluentMigrator.Runner;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          ;
+                      });
+});
 // Add services to the container.
 
-// builder.Services.AddControllers();
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -25,7 +43,7 @@ builder.Services.AddSwaggerGen();
 // inject
 
 builder.Services.AddDbContext<UserTasksContext>(options =>
-        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("UserEmployeeDB")));
 
 builder.Services.AddSingleton<DapperDBContext>();
 builder.Services.AddSingleton<Database>();
@@ -78,15 +96,19 @@ builder.Services.AddSingleton<Database>();
             // configure DI for AuthSErvices services
             builder.Services.AddScoped<IAuthServices, AuthServices>();
 
+            // configure DI for Employee services
+            builder.Services.AddScoped<IEmployeeServices, EmployeeServices>();
 
+
+            // configure DI for Employee services
+            builder.Services.AddScoped<ITasksServices, TasksServices>();
 
 
 
 
 builder.Services.AddLogging(c => c.AddFluentMigratorConsole())
         .AddFluentMigratorCore()
-        .ConfigureRunner(c => c.AddPostgres()
-
+        .ConfigureRunner(c => c.AddSqlServer2012()
             .WithGlobalConnectionString(builder.Configuration.GetConnectionString("SqlConnection"))
             .ScanIn(Assembly.GetExecutingAssembly()).For.Migrations());
 
@@ -105,10 +127,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(MyAllowSpecificOrigins);
+
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.MigrateDatabase();
+// app.MigrateDatabase();
 
 app.Run();

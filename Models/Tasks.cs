@@ -1,9 +1,11 @@
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmployeeTasks.Models;
-public class Tasks{
-    public Guid Id { get; set;}
+public class TasksModel{
+    [ColumnAttribute("id")]
+    public long Id { get; set;}
     public string Name { get; set;}
     public DateTime DateAdded { get; set; }
 
-    public Guid EmployeeId { get ; set; }
+    public long EmployeeId { get ; set; }
 }

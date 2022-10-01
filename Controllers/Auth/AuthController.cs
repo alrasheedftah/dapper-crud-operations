@@ -1,9 +1,11 @@
 
 
-using EmployeeCrudTaskAPi.ApiResource.Requests;
-using EmployeeCrudTaskAPi.ApiResource.Responses;
+using EmployeeTasks.ApiResource.Requests;
+using EmployeeTasks.ApiResource.Responses;
+using EmployeeTasks.Helpers;
 using EmployeeTasks.Routes;
 using EmployeeTasks.Services.Auth;
+using EmployeeTasks.Services.Employee;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,10 +14,13 @@ namespace EmployeeTasks.Controllers.Auth;
     public class AuthController : ControllerBase
     {
         private IAuthServices _authServices;
+        private IEmployeeServices _employeeServices;
 
-        public AuthController(IAuthServices authService)
+
+        public AuthController(IAuthServices authService,IEmployeeServices employeeServices)
         {
             _authServices = authService;
+            _employeeServices = employeeServices;
         }
 
 

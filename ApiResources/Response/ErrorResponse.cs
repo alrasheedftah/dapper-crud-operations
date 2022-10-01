@@ -1,5 +1,5 @@
 ﻿
-namespace EmployeeCrudTaskAPi.ApiResource.Responses;
+namespace EmployeeTasks.ApiResource.Responses;
     public class ErrorResponse
     {
 

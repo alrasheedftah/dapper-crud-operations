@@ -24,6 +24,7 @@ public static class MigrationManager
             catch
             {
                 //log errors or ...
+                // Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
                 throw;
             }
         }
