@@ -1,4 +1,4 @@
-
+using EmployeeTasks.ApiResource.Responses;
 using EmployeeTasks.ApiResource.Requests;
 using EmployeeTasks.ApiResource.Responses;
 using EmployeeTasks.Helpers;
@@ -34,8 +34,14 @@ public class TasksController : ControllerBase
                     }
                 };
 
-            return Ok(EmployeeData);
-
+            return Ok(
+                    new SuccessResponse
+                    {
+                    Result = EmployeeData,
+                    Success = true,
+                    MessageResult = " Updated Successfuly"
+                    }                
+            );
         }
 
         [HttpPost(ApiRoutes.TasksRouteName.TasksRouterName)]
@@ -53,8 +59,14 @@ public class TasksController : ControllerBase
                     }
                 };
 
-            return Ok(EmployeeData);
-
+            return Ok(
+                    new SuccessResponse
+                    {
+                    Result = null,
+                    Success = true,
+                    MessageResult = " Updated Successfuly"
+                    }                
+            );
         }        
 
 }

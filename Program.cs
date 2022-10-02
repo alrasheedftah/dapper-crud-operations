@@ -43,7 +43,7 @@ builder.Services.AddSwaggerGen();
 // inject
 
 builder.Services.AddDbContext<UserTasksContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("UserEmployeeDB")));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
 
 builder.Services.AddSingleton<DapperDBContext>();
 builder.Services.AddSingleton<Database>();
@@ -119,11 +119,11 @@ builder.Services.AddLogging(c => c.AddFluentMigratorConsole())
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.UseHttpsRedirection();
 

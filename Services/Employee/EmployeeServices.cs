@@ -39,6 +39,7 @@ class EmployeeServices : IEmployeeServices
             };
 
             return createdEmloyee;
+            
     }
 
     public async Task<int> DeleteEmployeeByIdAsync(long id)
@@ -125,6 +126,10 @@ class EmployeeServices : IEmployeeServices
             var query = "INSERT INTO employees (Name,DateAdded) VALUES (@Name,@DateAdded) " +
                 "SELECT  CAST(SCOPE_IDENTITY() as bigint) ";//in MSSQL
 
+            var queryTaskInsert = "INSERT INTO tasks (Name,DateAdded) VALUES (@Name,@DateAdded) " +
+                "SELECT  CAST(SCOPE_IDENTITY() as bigint) ";//in MSSQL
+
+
             var queryTasks = "INSERT INTO employees_tasks (TaskId,EmployeeId) VALUES (@TaskId,@EmployeeId)" ;
 
             var parameters = new DynamicParameters();
@@ -140,9 +145,9 @@ class EmployeeServices : IEmployeeServices
 
                     foreach( var a in Employee.TasksId)
                     {
-                    // var attachmentId = await connection.ExecuteScalarAsync<int>(aINSERT, a, transaction);
+                    var TaskId = await connection.ExecuteScalarAsync<int>(queryTaskInsert, new {Name = a.Name , DateAdded = DateTime.Now }, trans);
 
-                    var arows = await connection.ExecuteAsync(queryTasks, new { TaskId = a.Id , EmployeeId = id }, trans);
+                    var arows = await connection.ExecuteAsync(queryTasks, new { TaskId = TaskId , EmployeeId = id }, trans);
                     }
 
             trans.Commit();
@@ -194,11 +199,6 @@ class EmployeeServices : IEmployeeServices
 
             trans.Commit();
 
-            var createdEmloyee = new Employees
-            {
-                Id = id,
-                Name = Employee.Name,
-            };
             }catch{
 
                 throw new HttpResponseException()

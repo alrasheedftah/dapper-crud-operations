@@ -3,7 +3,7 @@
 
 
 
-using EmployeeCrudTaskAPi.ApiResource.Responses;
+using EmployeeTasks.ApiResource.Responses;
 
 namespace EmployeeTasks.Services.Auth;
 

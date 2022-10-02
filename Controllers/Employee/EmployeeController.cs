@@ -1,6 +1,6 @@
 
-using EmployeeTasks.ApiResource.Requests;
 using EmployeeTasks.ApiResource.Responses;
+using EmployeeTasks.ApiResource.Requests;
 using EmployeeTasks.Helpers;
 using EmployeeTasks.Routes;
 using EmployeeTasks.Services.Auth;
@@ -39,7 +39,13 @@ public class EmployeeController : ControllerBase
                     }
                 };
 
-            return Ok(EmployeeData);
+            return Ok(
+                    new SuccessResponse
+                    {
+                    Result = EmployeeData,
+                    Success = true,
+                    }                
+            );
 
         }
 
@@ -59,8 +65,13 @@ public class EmployeeController : ControllerBase
                     }
                 };
 
-            return Ok(EmployeeData);
-
+            return Ok(
+                    new SuccessResponse
+                    {
+                    Result = EmployeeData,
+                    Success = true,
+                    }                
+            );
         }        
 
 
@@ -79,8 +90,14 @@ public class EmployeeController : ControllerBase
             //         }
             //     };
 
-            return Ok("Updated");
-
+            return Ok(
+                    new SuccessResponse
+                    {
+                    Result = null,
+                    Success = true,
+                    MessageResult = " Updated Successfuly",
+                    }                
+            );
         }                  
 
         [HttpDelete(ApiRoutes.EmployRoute.EmployeesRouterName+"/{Id}")]
@@ -88,7 +105,14 @@ public class EmployeeController : ControllerBase
         {
              var numRowsEffectEmp =await _employeeServices.DeleteEmployeeByIdAsync(Id);
 
-            return Ok(numRowsEffectEmp);
-
+            // TODO Add If For numbEffect
+             return Ok(
+                    new SuccessResponse
+                    {
+                    Result = null,
+                    Success = true,
+                    MessageResult = " DEleted Succefully"
+                    }                
+            );
         }                           
 }
